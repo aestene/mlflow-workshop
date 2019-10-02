@@ -77,7 +77,7 @@ if __name__ == "__main__":
     model_prefix = "/models"
     data_file = args.datafile
     if backend=="databricks":
-        exp_name = "/Users/thomas.thoresen@fundatorno.onmicrosoft.com/ntnu_course_classifier"
+        exp_name = "/Users/arnts@equinor.com/MLflow_workshop"
     elif backend=="local":
         exp_name = "ntnu_course_classifier"
 
@@ -88,8 +88,8 @@ if __name__ == "__main__":
         tracking_uri = mlflow.tracking.get_tracking_uri() 
         print("Logging to "+tracking_uri)
         artifact_uri = mlflow.get_artifact_uri()
-        if artifact_uri.startswith("file://"):
-            artifact_uri = artifact_uri.split("file://")[1]
+        if artifact_uri.startswith("file:///"):
+            artifact_uri = artifact_uri.split("file:///")[1]
         print("Saving artifacts to "+artifact_uri)
         model_path = artifact_uri+model_prefix
 
